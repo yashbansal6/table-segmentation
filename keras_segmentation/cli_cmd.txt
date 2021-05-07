@@ -1,0 +1,1 @@
+python -m keras_segmentation verify_dataset --images_path="multi2/final_multi2/images_prepped_train" --segs_path="multi2/final_multi2/annotations_prepped_train"  --n_classes=3
