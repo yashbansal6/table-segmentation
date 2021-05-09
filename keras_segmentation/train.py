@@ -63,7 +63,6 @@ def train(model,
           input_height=None,
           input_width=None,
           n_classes=None,
-          verify_dataset=True,
           checkpoints_path=None,
           epochs=5,
           batch_size=2,
@@ -149,9 +148,6 @@ def train(model,
                 save_weights_only=True,
                 verbose=True
             )
-
-        if sys.version_info[0] < 3: # for pyhton 2 
-            default_callback = CheckpointsCallback(checkpoints_path)
 
         callbacks = [
             default_callback
