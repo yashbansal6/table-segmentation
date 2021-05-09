@@ -12,7 +12,6 @@ from time import time
 from .train import find_latest_checkpoint
 from .data_utils.data_loader import get_image_array, get_segmentation_array,\
     DATA_LOADER_SEED, class_colors, get_pairs_from_paths
-from .models.config import IMAGE_ORDERING
 
 
 random.seed(DATA_LOADER_SEED)
@@ -153,8 +152,7 @@ def predict(model=None, inp=None, out_fname=None,
     input_height = model.input_height
     n_classes = model.n_classes
 
-    x = get_image_array(inp, input_width, input_height,
-                        ordering=IMAGE_ORDERING)
+    x = get_image_array(inp, input_width, input_height)
     pr = model.predict(np.array([x]))[0]
     pr = pr.reshape((output_height,  output_width, n_classes)).argmax(axis=2)
 
